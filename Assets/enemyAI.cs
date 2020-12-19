@@ -19,6 +19,7 @@ public class enemyAI : MonoBehaviour
     public AudioClip[] shotSounds;
     public AudioSource audioSource;
     public ParticleSystem muzzleFlash;
+    public GameObject healthPickup, bulletPickup, shieldPickup;
 
     public int life = 150;
     public TextMeshPro healthText;
@@ -55,7 +56,7 @@ public class enemyAI : MonoBehaviour
     IEnumerator HitPlayer(){
         Life l = player.GetComponent<Life>();
         if(l != null){
-            l.Hit(10);
+            l.Hit(5);
         }else{
             Debug.Log("I'm not finding the stupid component.");
         }
@@ -65,8 +66,30 @@ public class enemyAI : MonoBehaviour
     public void Hit(int damage){
         life -= damage;
         if(life <= 0){
+            SpawnPickups();
             Destroy(this.gameObject);
         }
         healthText.text = life.ToString();
+    }
+
+    void SpawnPickups()
+    {
+        int randomHP = Random.Range(0, 100);
+        int randomBullts = Random.Range(0, 100);
+        int randomShield = Random.Range(0, 100);
+        Vector3 pos = transform.position;
+        pos.y += 2;
+        if (randomHP > 75)
+        {
+            Instantiate(healthPickup, pos, transform.rotation);
+        }
+        if (randomBullts > 55)
+        {
+            Instantiate(bulletPickup, pos, transform.rotation);
+        }
+        if (randomShield > 75)
+        {
+            Instantiate(shieldPickup, pos, transform.rotation);
+        }
     }
 }

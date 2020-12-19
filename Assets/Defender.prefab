@@ -640,12 +640,18 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   animator: {fileID: 3423861989022103805}
-  bulletsPerSecond: 0.9
-  initialTimeWaitToShoot: 2
+  bulletsPerSecond: 6
+  initialTimeWaitToShoot: 3
   shotSounds:
   - {fileID: 8300000, guid: e88084c6f293c324db2b4dcf575d60dc, type: 3}
   audioSource: {fileID: 3374774521660485871}
   muzzleFlash: {fileID: 3374774522915069550}
+  healthPickup: {fileID: 1317177354352918517, guid: 1112bb896008a3e45863d877cfe286e4,
+    type: 3}
+  bulletPickup: {fileID: 8422871670864184830, guid: 0defdd182e523314bb55eb226d05b81e,
+    type: 3}
+  shieldPickup: {fileID: 453313152643456371, guid: 357300eb9379ab7419527987a26b2ca9,
+    type: 3}
   life: 150
   healthText: {fileID: 3374774521948138512}
 --- !u!136 &3373373171076593576

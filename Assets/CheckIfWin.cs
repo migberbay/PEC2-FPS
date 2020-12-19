@@ -16,16 +16,9 @@ public class CheckIfWin : MonoBehaviour
     IEnumerator CheckIfWon(){
         if(transform.childCount == 0){
             WinPanel.SetActive(true);
-            FirstPersonController controller = Player.GetComponent<FirstPersonController>();
-            controller.m_MouseLook.lockCursor = false;
-
-            Player.GetComponent<Shooting>().enabled = false;
+            Player.SetActive(false);
         }
         yield return new WaitForSeconds(1);
         StartCoroutine("CheckIfWon");
-    }
-
-    public void Restart(){
-        SceneManager.LoadScene("Main",LoadSceneMode.Single);
     }
 }
